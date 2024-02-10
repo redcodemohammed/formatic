@@ -1,0 +1,53 @@
+{
+  "pages": {
+    "auth": {
+      "login": {
+        "loginFormTitle": "تسجيل الدخول",
+        "orLoginWith": "او استخدم حسابك في احدى المنصات",
+        "loginWithGoogle": "سجل الدخول باستخدام Google",
+        "loginWithFacebook": "سجل الدخول باستخدام Facebook",
+        "loginWithGithub": "سجل الدخول باستخدام Github",
+        "forgotYourPassword": "نسيت كلمة المرور؟",
+        "wrongCredentials": "البريد الالكتروني او كلمة المرور غير صحيحة"
+      }
+    },
+    "home": {
+      "title": "الصفحة الرئيسية",
+      "welcome": "اهلا بك {key}"
+    },
+    "oauth": {
+      "logginInWith": "يتم تسجيل الدخول باستخدام {key}",
+      "codeNotValid": "حدث خطا اثناء تسجيل الدخول حاول مرة اخرى"
+    }
+  },
+  "common": {
+    "forms": {
+      "email": "البريد الالكتروني",
+      "password": "كلمة المرور"
+    },
+    "actions": {
+      "login": "تسجيل الدخول",
+      "register": "التسجيل",
+      "send": "ارسال",
+      "cancel": "الغاء",
+      "reset": "اعادة تعيين",
+      "logout": "تسجيل الخروج",
+      "createNew": "انشاء {key} جديد"
+    }
+  },
+  "validators": {
+    "invalid": "{key} غير صالح",
+    "required": "{key} مطلوب",
+    "min": "{key} يجب ان يكون اكبر من {min} حروف",
+    "max": "{key} يجب ان يكون اقل من {max} حروف",
+    "alreadyExists": "{key} مستعمل مسبقاً"
+  },
+  "auth": {
+    "register": {
+      "email_exists": "البريد الالكتروني مستعمل من قبل"
+    },
+    "login": {
+      "invalid_credentials": "البريد الالكتروني او كلمة المرور غير صحيحة"
+    }
+  }
+}

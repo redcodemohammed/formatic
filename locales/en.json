@@ -1,0 +1,54 @@
+{
+  "message": "Hello World!",
+  "common": {
+    "actions": {
+      "cancel": "cancellation",
+      "createNew": "Create a new {key}",
+      "login": "sign in",
+      "logout": "sign out",
+      "register": "Register",
+      "reset": "Reset",
+      "send": "send"
+    },
+    "forms": {
+      "email": "E-mail",
+      "password": "password"
+    }
+  },
+  "pages": {
+    "auth": {
+      "login": {
+        "forgotYourPassword": "Forgot your password?",
+        "loginFormTitle": "sign in",
+        "loginWithFacebook": "Log in with Facebook",
+        "loginWithGithub": "Log in with Github",
+        "loginWithGoogle": "Sign in with Google",
+        "orLoginWith": "Or use your account on one of the platforms",
+        "wrongCredentials": "The email or password is incorrect"
+      }
+    },
+    "home": {
+      "title": "Homepage",
+      "welcome": "Welcome {key}"
+    },
+    "oauth": {
+      "codeNotValid": "An error occurred while logging in. Try again",
+      "logginInWith": "Log in using {key}"
+    }
+  },
+  "validators": {
+    "alreadyExists": "{key} is already in use",
+    "invalid": "{key} is invalid",
+    "max": "{key} must be fewer than {max} characters",
+    "min": "{key} must be longer than {min} characters",
+    "required": "{key} is required"
+  },
+  "auth": {
+    "register": {
+      "email_exists": "Email is already in use"
+    },
+    "login": {
+      "invalid_credentials": "The email or password is incorrect"
+    }
+  }
+}
