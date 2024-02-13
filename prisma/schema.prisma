@@ -15,10 +15,15 @@ model User {
   name          String?
   email         String?       @unique
   emailVerified DateTime?
-  accounts      Account[]
   localAccount  LocalAccount?
 
+  events   Event[]
+  accounts Account[]
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  submission Submission[]
 
   @@map("users")
 }
@@ -40,4 +45,88 @@ type LocalAccount {
 enum AccountProvider {
   GOOGLE
   GITHUB
+}
+
+model Event {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  description           String
+  location              String
+  capacity              Int
+  overCapacity          Boolean
+  startDate             DateTime
+  endDate               DateTime
+  registrationStartDate DateTime
+  registrationEndDate   DateTime
+  isPublic              Boolean
+  isPublished           Boolean  @default(false)
+  category              Category
+
+  fields Field[]
+
+  ownerId String @db.ObjectId
+  owner   User   @relation(fields: [ownerId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  submission Submission[]
+
+  @@map("events")
+}
+
+enum Category {
+  Tech
+  Science
+  Health
+  Sports
+  Business
+  Entertainment
+  General
+  Education
+  Art
+  Fashion
+  Gaming
+  Music
+  Travel
+  Charity
+  Community
+  Other
+}
+
+type Field {
+  name        String
+  description String?
+  icon        String?
+  type        String
+  options     Option[]
+  isRequired  Boolean  @default(false)
+  isActive    Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+}
+
+type Option {
+  label String
+  value String
+}
+
+model Submission {
+  id   String           @id @default(auto()) @map("_id") @db.ObjectId
+  data SubmissionData[]
+
+  eventId String  @db.ObjectId
+  event   Event   @relation(fields: [eventId], references: [id])
+  userId  String? @db.ObjectId
+  user    User?   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("submissions")
+}
+
+type SubmissionData {
+  fieldId String
+  value   String
 }
