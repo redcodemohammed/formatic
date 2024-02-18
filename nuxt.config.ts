@@ -37,7 +37,9 @@ export default defineNuxtConfig({
         strategy: "no_prefix",
         defaultLocale: "ar",
         lazy: true,
-        detectBrowserLanguage: false,
+        detectBrowserLanguage: {
+          useCookie: true,
+        },
         // todo set the base url before deploying to production
       },
     ],
@@ -45,11 +47,11 @@ export default defineNuxtConfig({
       "@nuxt/ui",
       {
         global: true,
-        icons: ["tabler", "logos"],
+        icons: ["tabler", "logos", "ph"],
       },
     ],
-    "@vueuse/nuxt",
-    "@formkit/auto-animate", // https://google-fonts.nuxtjs.org
+    "@vueuse/nuxt", // https://google-fonts.nuxtjs.org
+    "@formkit/auto-animate",
     "@nuxtjs/device",
     "@nuxtjs/robots",
     [
@@ -57,7 +59,7 @@ export default defineNuxtConfig({
       {
         families: {
           "IBM+Plex+Sans+Arabic": true,
-          "Noto+Naskh+Arabic": true,
+          Poppins: true,
         },
         download: true,
         outputDir: "assets",
@@ -69,6 +71,7 @@ export default defineNuxtConfig({
     "nuxt-typed-router",
     "@samk-dev/nuxt-vcalendar",
     "nuxt-auth-utils",
+    "@nuxt/image",
   ],
   imports: {
     dirs: ["stores"],
@@ -78,6 +81,7 @@ export default defineNuxtConfig({
       apiUrl: process.env.NUXT_API_URL,
       githubOAuthEnabled: process.env.NUXT_GITHUB_OAUTH_ENABLED,
       googleOAuthEnabled: process.env.NUXT_GOOGLE_OAUTH_ENABLED,
+      googleOAuthRedirectUri: process.env.NUXT_OAUTH_GOOGLE_REDIRECT_URI,
     },
     oauth: {
       github: {

@@ -19,6 +19,7 @@ model User {
 
   events   Event[]
   accounts Account[]
+  tokens   Tokens[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -42,25 +43,46 @@ type LocalAccount {
   createAt DateTime @default(now())
 }
 
+model Tokens {
+  id    String    @id @default(auto()) @map("_id") @db.ObjectId
+  token String
+  type  TokenType
+
+  userId String @db.ObjectId
+  owner  User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+enum TokenType {
+  PasswordReset
+  EmailVerification
+}
+
 enum AccountProvider {
   GOOGLE
   GITHUB
 }
 
 model Event {
-  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
   name                  String
   description           String
   location              String
   capacity              Int
+  duration              Int
   overCapacity          Boolean
   startDate             DateTime
   endDate               DateTime
   registrationStartDate DateTime
   registrationEndDate   DateTime
-  isPublic              Boolean
-  isPublished           Boolean  @default(false)
+  status                EventStatus
+  isPublished           Boolean     @default(false)
   category              Category
+  telegramBotToken      String?
+  telegramChatId        String?
+  telegramChannelId     String?
 
   fields Field[]
 
@@ -73,6 +95,13 @@ model Event {
   submission Submission[]
 
   @@map("events")
+}
+
+enum EventStatus {
+  Draft
+  Cancelled
+  Published
+  OverCapacity
 }
 
 enum Category {

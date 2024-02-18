@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { DropdownItem } from "@nuxt/ui/dist/runtime/types";
-
+import type { DropdownItem } from "#ui/types";
 const { t: $t } = useI18n();
 const { user, clear } = useUserSession();
 
@@ -33,5 +32,3 @@ const items: DropdownItem[][] = [
     </template>
   </u-dropdown>
 </template>
-
-<style></style>

@@ -1,7 +1,7 @@
 export default oauth.googleEventHandler({
   config: {
     // @ts-ignore
-    redirectUrl: "/api/auth/google",
+    redirectUrl: useRuntimeConfig().app.googleOAuthRedirectUri,
     scope: ["email", "profile"],
   },
   async onSuccess(event, { user, tokens }) {

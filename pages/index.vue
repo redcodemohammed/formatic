@@ -1,8 +1,14 @@
 <script lang="ts" setup>
-const { user } = useUserSession();
+const events = useEvents();
+
+const { data, error, pending } = useAsyncData("events", () => events.list());
 </script>
 
 <template>
-  <div>{{ $t("pages.home.welcome", { key: user.email }) }}</div>
-  <pre dir="auto">{{ user }}</pre>
+  <div>
+    <IndexTabs />
+    <PendingState v-if="pending" />
+    <ErrorDisplay v-else-if="error" :error="error" />
+    <EventCardsList :events="data || []" />
+  </div>
 </template>

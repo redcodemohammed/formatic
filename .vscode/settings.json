@@ -29,5 +29,5 @@
     "ui"
   ],
   "i18n-ally.keystyle": "nested",
-  "gutterpreview.sourceFolder": "public"
+  "gutterpreview.sourceFolder": "public",
 }

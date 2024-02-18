@@ -4,9 +4,19 @@ const head = useLocaleHead({
   identifierAttribute: "id",
   addSeoAttributes: true,
 });
+
+const { localeProperties } = useI18n();
 </script>
 <template>
-  <Html :lang="head.htmlAttrs!.lang" :dir="head.htmlAttrs!.dir" class="select-none font-ibm-plex-sans-arabic">
+  <Html
+    :lang="head.htmlAttrs!.lang"
+    :dir="localeProperties.dir"
+    :class="{
+      'font-ibm-plex-sans-arabic': localeProperties.code === 'ar',
+      'font-poppins': localeProperties.code === 'en',
+    }"
+    class="select-none"
+  >
     <NuxtLayout>
       <modals-provider />
       <NuxtLoadingIndicator></NuxtLoadingIndicator>

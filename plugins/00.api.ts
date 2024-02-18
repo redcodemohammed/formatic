@@ -1,3 +1,9 @@
+import { EventsModule } from "~/modules/events/event.repository";
+
+interface IApiInstance {
+  events: EventsModule;
+}
+
 export default defineNuxtPlugin((nuxtApp) => {
   const { session } = useUserSession();
   const $loading = useLoadingStore();
@@ -28,5 +34,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     },
   });
 
-  return { provide: { api } };
+  // An object containing all repositories we need to expose
+  const modules: IApiInstance = {
+    events: new EventsModule(api),
+  };
+
+  return { provide: { api, modules } };
 });

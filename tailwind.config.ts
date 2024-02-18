@@ -5,7 +5,7 @@ export default <Partial<Config>>{
     extend: {
       fontFamily: {
         "ibm-plex-sans-arabic": ["IBM Plex Sans Arabic", "sans-serif"],
-        "noto-naskh-arabic": ["Noto Naskh Arabic", "serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

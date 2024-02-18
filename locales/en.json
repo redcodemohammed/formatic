@@ -8,11 +8,23 @@
       "logout": "sign out",
       "register": "Register",
       "reset": "Reset",
-      "send": "send"
+      "send": "send",
+      "change": "changing",
+      "delete": "delete",
+      "edit": "amendment",
+      "publish": "Save and publish",
+      "saveDraft": "Save a draft"
     },
     "forms": {
       "email": "E-mail",
       "password": "password"
+    },
+    "left": "remaining {left}",
+    "statuses": {
+      "draft": "Draft",
+      "ended": "Finished",
+      "overCapacity": "Exceeding the maximum number of participants",
+      "published": "Published"
     }
   },
   "pages": {
@@ -34,6 +46,25 @@
     "oauth": {
       "codeNotValid": "An error occurred while logging in. Try again",
       "logginInWith": "Log in using {key}"
+    },
+    "createEvent": {
+      "form": {
+        "generalInformation": {
+          "category-description": "Select the event label you want to create",
+          "description-description": "Write a short, clear description of the event you want to create",
+          "h2": "Please provide general information about the event you would like to create. \nYou can specify whether the event is public or private and whether it is published or not. \nYou can also select the event classification, specify the location of the event, and specify the start and end date of the event and the start and end date of the recording.",
+          "name-description": "Choose a unique and attention-grabbing name for your event",
+          "title": "General information"
+        },
+        "uploadCover": {
+          "h2": "Please upload a cover photo to increase the appeal of your content and attract the attention of your target audience. \nAn attractive cover image can be an important element in attracting attention and enhancing user engagement with your content. \nWe recommend uploading an attractive and inspiring image that reflects the essence of the content and attracts immediate attention.",
+          "title": "Upload cover image"
+        }
+      },
+      "information": "Event information",
+      "lastUpdate": "Last update",
+      "status": "the condition",
+      "title": "Create a new event"
     }
   },
   "validators": {
@@ -49,6 +80,58 @@
     },
     "login": {
       "invalid_credentials": "The email or password is incorrect"
+    }
+  },
+  "components": {
+    "index": {
+      "tabs": {
+        "all": "All",
+        "haventStarted": "Haven't Started",
+        "ended": "Finished"
+      }
+    },
+    "eventCard": {
+      "startsIn": "Starts in 5 days",
+      "finished": "I finish",
+      "onGoing": "seem!"
+    }
+  },
+  "constants": {
+    "categories": {
+      "art": "art",
+      "business": "Business",
+      "charity": "charitable",
+      "community": "Community",
+      "education": "education",
+      "entertainment": "entertainment",
+      "fashion": "fashion",
+      "gaming": "games",
+      "general": "general",
+      "health": "health",
+      "music": "music",
+      "other": "Other",
+      "science": "Sciences",
+      "sports": "sports",
+      "tech": "Technique",
+      "travel": "travel"
+    }
+  },
+  "entities": {
+    "event": {
+      "capacity": "Maximum number of participants",
+      "category": "Category",
+      "description": "Event description",
+      "endDate": "Event end date",
+      "isPublic": "Is the event public?",
+      "isPublished": "Is the event published?",
+      "location": "Event location",
+      "name": "Event name",
+      "overCapacity": "Exceeding the maximum number of participants",
+      "plural": "Events",
+      "registrationEndDate": "Registration end date",
+      "registrationStartDate": "Registration start date",
+      "singular": "It happened",
+      "startDate": "Event start date"
     }
   }
 }
